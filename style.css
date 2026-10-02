@@ -1,0 +1,332 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(1000px 400px at 10% -5%, rgba(0, 168, 107, 0.10), transparent 60%),
+        radial-gradient(800px 400px at 95% 0%, rgba(0, 92, 58, 0.08), transparent 55%),
+        #f7f9f8;
+    color: #111;
+}
+
+/* ===== navbar ===== */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    height: auto;
+    min-height: 75px;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0, 92, 58, 0.12);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+.container-header {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    filter: drop-shadow(0 4px 10px rgba(0, 92, 58, 0.25));
+    transition: transform 0.4s ease;
+}
+
+.logo:hover {
+    transform: scale(1.08) rotate(-2deg);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 10px;
+}
+
+nav ul li a {
+    display: block;
+    padding: 9px 20px;
+
+    color: #222;
+
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+
+    border-radius: 30px;
+
+    transition: all 0.35s ease;
+}
+
+nav ul li a:hover {
+    color: white;
+    background: linear-gradient(135deg, #00a86b, #005c3a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 92, 58, 0.35);
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    min-width: 220px;
+
+    padding: 9px 16px;
+
+    background: rgba(0, 92, 58, 0.06);
+
+    border: 1px solid rgba(0, 92, 58, 0.12);
+    border-radius: 30px;
+
+    transition: all 0.3s ease;
+}
+
+.search-box:hover {
+    border-color: rgba(0, 92, 58, 0.35);
+}
+
+.search-box:focus-within {
+    background: white;
+    border-color: #00a86b;
+
+    box-shadow:
+        0 0 0 4px rgba(0, 168, 107, 0.15);
+}
+
+.search-ico {
+    color: #005c3a;
+    font-size: 1.1rem;
+}
+
+.search-box input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-size: 14px;
+}
+
+.Btnholics {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 18px;
+
+    border: none;
+    border-radius: 30px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+    background: linear-gradient(135deg, #00a86b, #005c3a);
+    color: white;
+    box-shadow: 0 4px 14px rgba(0, 92, 58, 0.3);
+
+    transition: all 0.4s ease;
+}
+
+.Btnholics a {
+    color: white;
+}
+
+.Btnholics:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 92, 58, 0.45);
+}
+
+/* ===== form section ===== */
+main {
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+.Products {
+    margin: 44px auto 60px;
+    width: 100%;
+    max-width: 720px;
+    padding: 44px 46px;
+
+    background: white;
+    border: 1px solid rgba(0, 92, 58, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 24px 60px rgba(0, 92, 58, 0.14);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.Products::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #00a86b, #005c3a);
+}
+
+.Context {
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.Context h2 {
+    font-size: 30px;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #00a86b, #005c3a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.Context p {
+    color: #888;
+    font-size: 14px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    font-size: 12px;
+    font-weight: 700;
+    color: #005c3a;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+form input,
+form select,
+form textarea {
+    padding: 13px 16px;
+
+    background: #f4f6f8;
+    border: 1.5px solid #e4e8ec;
+    border-radius: 14px;
+    outline: none;
+
+    font-size: 15px;
+    font-family: inherit;
+    color: #111;
+
+    transition: all 0.3s ease;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+    color: #aab2b8;
+}
+
+form input:hover,
+form select:hover,
+form textarea:hover {
+    border-color: #c9d6cf;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    background: white;
+    border-color: #00a86b;
+    box-shadow: 0 0 0 4px rgba(0, 168, 107, 0.14);
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+form select {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23005c3a" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 14px;
+}
+
+form button {
+    margin-top: 10px;
+    padding: 15px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: linear-gradient(135deg, #00a86b, #005c3a);
+    color: white;
+
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+
+    box-shadow: 0 6px 18px rgba(0, 92, 58, 0.3);
+    transition: all 0.35s ease;
+}
+
+form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(0, 92, 58, 0.45);
+}
+
+form button:active {
+    transform: translateY(-1px);
+}
+
+/* ===== responsive ===== */
+@media (max-width: 900px) {
+    .container-header {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .search-box {
+        min-width: 160px;
+        order: 5;
+        width: 100%;
+    }
+
+    nav ul {
+        gap: 4px;
+    }
+
+    .Products {
+        padding: 30px 22px;
+        margin: 24px 12px 40px;
+    }
+}

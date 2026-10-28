@@ -60,20 +60,10 @@
                 <input id="productPrice" type="number" placeholder="Ex:6500" required>
 
                 <label for="">Product Image</label>
-                <input
-                type="text"
-                id="productImage"
-                placeholder="Image URL"
-                >
+                <input type="text" id="productImage" placeholder="Image URL"><img id="productImagePreview" alt="Product photo preview" hidden style="max-width:100%;max-height:240px;object-fit:contain;border-radius:10px;margin:12px 0;">
 
                 <label for="productCategory">Category</label>
 
-                <select id="productCategory">
-                    <option value="">Category</option>
-                    <option value="Fashion">Fashion</option>
-                    <option value="Electro">Electro</option>
-                    <option value="Games">Games</option>
-                </select>
                 
                 
                 <label for="productDescription">Description</label>
@@ -85,7 +75,7 @@
                     placeholder="Add Your Description">
                 </textarea>
                 
-                <button id="addProductBtn"> Publish Product </button>
+                <button id="addProductBtn" type="button"> Publish Product </button>
             </form>
         </div>
     </section>

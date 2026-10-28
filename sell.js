@@ -1,76 +1,63 @@
-let productName = document.getElementById("productName");
-let productPrice = document.getElementById("productPrice");
-let productImage = document.getElementById("productImage");
+const API_URL = "http://localhost:3000/api/products";
 
-let productCategory = document.getElementById("productCategory");
-let productDescription = document.getElementById("productDescription");
+const productName = document.getElementById("productName");
+const productPrice = document.getElementById("productPrice");
+const productImage = document.getElementById("productImage");
+const productDescription = document.getElementById("productDescription");
+const productImagePreview = document.getElementById("productImagePreview");
+const addProductBtn = document.getElementById("addProductBtn");
+const draft = JSON.parse(localStorage.getItem("movite-draft") || "null");
 
-let addProductBtn = document.getElementById("addProductBtn");
+if (draft) {
+    productName.value = draft.title || "";
+    productPrice.value = draft.price || "";
+    productDescription.value = draft.description || "";
 
+    if (draft.image) {
+        productImage.value = draft.image;
+        productImage.hidden = true;
+        productImagePreview.src = draft.image;
+        productImagePreview.hidden = false;
+    }
+}
 
-addProductBtn.addEventListener("click", function(event) {
-
+addProductBtn.addEventListener("click", async event => {
     event.preventDefault();
 
-    let name = productName.value;
-    let price = productPrice.value;
-    let image = productImage.value;
-    let category = productCategory.value;
-    let description = productDescription.value;
+    const product = {
+        name: productName.value.trim(),
+        price: Number(productPrice.value),
+        image: productImage.value.trim(),
+        description: productDescription.value.trim()
+    };
 
-
-    if (
-        name === "" ||
-        price === "" ||
-        image === "" ||
-        category === "" ||
-        description === ""
-    ) {
-
-        alert("Please fill all fields");
-
+    if (!product.name || !product.price || !product.image || !product.description) {
+        alert("Check the product name, price, photo, and description before publishing.");
         return;
     }
 
+    addProductBtn.disabled = true;
+    addProductBtn.textContent = "Publishing…";
 
-    let product = {
+    try {
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(product)
+        });
+        const result = await response.json();
 
-        name: name,
+        if (!response.ok) {
+            throw new Error(result.message || result.error || "Could not publish the product.");
+        }
 
-        price: price,
-
-        image: image,
-
-        category: category,
-
-        description: description
-
-    };
-
-
-    let products = JSON.parse(
-        localStorage.getItem("movite_products")
-    ) || [];
-
-
-    products.push(product);
-
-
-    localStorage.setItem(
-        "movite_products",
-        JSON.stringify(products)
-    );
-
-
-    alert("Product published successfully");
-
-
-    productName.value = "";
-    productPrice.value = "";
-    productImage.value = "";
-    productCategory.value = "";
-    productDescription.value = "";
-
-    window.location.href = "so9.html"
-
+        localStorage.removeItem("movite-draft");
+        alert("Product published.");
+        location.href = "so9.html#products";
+    } catch (error) {
+        alert(error.message);
+        addProductBtn.disabled = false;
+        addProductBtn.textContent = "Publish Product";
+    }
 });
+

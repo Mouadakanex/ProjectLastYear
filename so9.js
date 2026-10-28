@@ -1,8 +1,10 @@
 let productsContainer =
-    document.getElementById("productsContainer");
+    document.getElementById("Productcontainer");
 
 let sellproduct = document.getElementById("sellproduct");
 let signing = document.getElementById("signing");
+
+
 
 
 sellproduct.addEventListener("click", function(){
@@ -14,22 +16,19 @@ signing.addEventListener("click", function(){
     window.location.href = "auth/register.html"
 });
 
+async function Getproduct (){
 
-function displayProducts() {
+    const response = await fetch("http://localhost:3000/api/products");
 
-    productsContainer.innerHTML = "";
+    const products = await response.json();
+     console.log(products);
 
-
-    let products = JSON.parse(
-        localStorage.getItem("movite_products")
-    ) || [];
-
+     Productcontainer.innerHTML = "";
 
     products.forEach(function(product) {
-
-        productsContainer.innerHTML += `
-
-            <div class="CradInfo">
+        Productcontainer.innerHTML += `
+        
+        <div class="CradInfo">
 
                 <div class="product-photo">
 
@@ -39,12 +38,7 @@ function displayProducts() {
                         alt="${product.name}"
                     >
 
-                    <span class="product-badge">
-                        ${product.category}
-                    </span>
-
                 </div>
-
 
                 <div class="card">
 
@@ -59,10 +53,7 @@ function displayProducts() {
             </div>
 
         `;
-
-    });
-
+    })
 }
+Getproduct();
 
-
-displayProducts();

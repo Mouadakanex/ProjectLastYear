@@ -40,7 +40,8 @@
             </nav>
             <div class="Navbar">
                     <button id="sellproduct" class="btn">Sell Product</button>
-                    <button id="signing" class="btn">Sign in</button>
+                    
+                    <button id="signing" class="btnsign">Sign in</button>
                 </div>
         </div>
     </header>
@@ -80,18 +81,9 @@
             <div class="Boxproducts">
     
                 <h2>Products For Sell</h2>
+                <strong></strong>
     
-                <select id="categoryFilter">
-    
-                    <option value="">Category</option>
-    
-                    <option value="Electro">Electro</option>
-    
-                    <option value="Games">Games</option>
-    
-                    <option value="Fashion">Fashion</option>
-    
-                </select>
+                <select id="categoryFilter"><option value="">Category</option><option value="Electronics">Electronics</option><option value="Home">Home</option><option value="Fashion">Fashion</option><option value="Sports">Sports</option><option value="Cars">Cars</option><option value="Other">Other</option></select>
     
             </div>
     
@@ -113,7 +105,9 @@
             <div class="linee"></div>
     
     
-            <div id="productsContainer"></div>
+            <div id="Productcontainer">
+
+            </div>
     
     
         </div>
@@ -126,7 +120,10 @@
         </div>
     </footer>
     
-    <script src="agent.js"></script>
+    <script src="ai-agent/agent.js"></script>
     <script src="so9.js"></script>
 </body>
 </html>
+
+
+

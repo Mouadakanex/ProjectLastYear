@@ -28,6 +28,7 @@ header{
 .Navbar{
     display: flex;
     gap: 20px;
+    
 }
 .logo{
     width: 100px;
@@ -77,6 +78,40 @@ nav ul{
     border-color: #8eae98;
 }
 .btn:focus-visible{
+    box-shadow: 0 0 0 4px rgba(33, 107, 75, .16);
+}
+.btnsign{
+    min-height: 44px;
+    border-radius: 12px;
+    padding: 0 21px;
+    border: 1px solid #216b4b;
+    outline: none;
+    background: #216b4b;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .1px;
+    box-shadow: 0 5px 12px rgba(33, 107, 75, .16);
+    transition: background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    cursor: pointer;
+    visibility: hidden;
+}
+.btnsign:hover{
+    transform: translateY(-2px);
+    background: #18583d;
+    border-color: #18583d;
+    box-shadow: 0 8px 16px rgba(33, 107, 75, .2);
+}
+.Navbar .btnsign:last-child{
+    background: #fff;
+    color: #216b4b;
+    box-shadow: none;
+}
+.Navbar .btnsign:last-child:hover{
+    background: #edf5ef;
+    border-color: #8eae98;
+}
+.btnsign:focus-visible{
     box-shadow: 0 0 0 4px rgba(33, 107, 75, .16);
 }
 .Searchbox{
@@ -327,6 +362,10 @@ nav ul{
     margin-top: 18px;
     padding: 0;
     font-size: 20px;
+}
+#Productcontainer{
+    display: flex;
+    gap: 20px;
 }
 .Boxproducts h2{
     margin: 0;
